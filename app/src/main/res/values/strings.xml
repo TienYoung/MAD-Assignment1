@@ -1,11 +1,23 @@
 <resources>
     <string name="app_name">ThemesMenus</string>
-    <string name="title_activity_2">Activity2</string>
+    <string name="title_activity_2">Add New Trip</string>
     <string name="activity2">Activity 2</string>
     <string name="activity3">Activity 3</string>
     <string name="title_activity_3">Activity3</string>
-    <string name="go_back">Go Back</string>
+    <string name="go_back">Back</string>
     <string name="go_to_3">Go to Activity 3</string>
     <string name="go_to_2">Go to Activity 2</string>
     <string name="banner_title">Trip Planner</string>
+    <string name="destination_label">Destination:</string>
+    <string name="destination_hint">Enter destination</string>
+    <string name="date_label">Date:</string>
+    <string name="participants_label">Participants:</string>
+    <string name="participants_hint">Enter participants</string>
+    <string name="budget_label">Budget:</string>
+    <string name="budget_hint">Enter budget</string>
+    <string name="save_trip">Save Trip</string>
+    <string name="people_count">Number of People:</string>
+    <string name="count_hint">0</string>
+    <string name="minus_text">-</string>
+    <string name="plus_text">+</string>
 </resources>
