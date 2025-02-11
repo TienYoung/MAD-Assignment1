@@ -22,6 +22,6 @@
     </style>
 <!--    android:background-->
     <style name="MyButton" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:background">#ABC123</item>
+        <item name="android:background">#2196F3</item>
     </style>
 </resources>
