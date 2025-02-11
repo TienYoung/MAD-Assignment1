@@ -20,4 +20,15 @@
     <string name="count_hint">0</string>
     <string name="minus_text">-</string>
     <string name="plus_text">+</string>
+    <string name="travel_assistant">Travel Assistant</string>
+    <string name="travel_checklist">Travel Checklist</string>
+    <string name="passport">Passport</string>
+    <string name="tickets">Tickets</string>
+    <string name="emergency_contacts">Emergency Contacts</string>
+    <string name="emergency_contact_hint">Emergency Contact Number</string>
+    <string name="new_item_hint">Enter new item</string>
+    <string name="add_item">Add</string>
+    <string name="visa">Visa</string>
+    <string name="hotel">Hotel Booking</string>
+    <string name="insurance">Travel Insurance</string>
 </resources>
