@@ -5,8 +5,8 @@
     <string name="activity3">Activity 3</string>
     <string name="title_activity_3">Activity3</string>
     <string name="go_back">Back</string>
-    <string name="go_to_3">Go to Activity 3</string>
-    <string name="go_to_2">Go to Activity 2</string>
+    <string name="go_to_3">Travel Assist</string>
+    <string name="go_to_2">Add New Trip</string>
     <string name="banner_title">Trip Planner</string>
     <string name="destination_label">Destination:</string>
     <string name="destination_hint">Enter destination</string>
@@ -31,4 +31,8 @@
     <string name="visa">Visa</string>
     <string name="hotel">Hotel Booking</string>
     <string name="insurance">Travel Insurance</string>
+    <string name="barcelona">Barcelona</string>
+    <string name="miami">Miami</string>
+    <string name="paris">Paris</string>
+    <string name="qatar">Qatar</string>
 </resources>
