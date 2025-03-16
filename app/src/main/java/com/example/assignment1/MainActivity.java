@@ -81,8 +81,8 @@ public class MainActivity extends ComponentActivity {
         goTo3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
-                intent.putExtra("data_from_main_to_3", "Hello from Main");
+                Intent intent = new Intent(MainActivity.this, TripListActivity.class);
+//                intent.putExtra("data_from_main_to_3", "Hello from Main");
 //                startActivity(intent);
                 getContent.launch(intent);
             }

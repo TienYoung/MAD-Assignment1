@@ -3,6 +3,8 @@
     <string name="title_activity_2">Add New Trip</string>
     <string name="activity2">Activity 2</string>
     <string name="activity3">Activity 3</string>
+    <string name="trip_list_activity">Trip List Activity</string>
+    <string name="trip_details_activity">Trip Details Activity</string>
     <string name="title_activity_3">Activity3</string>
     <string name="go_back">Back</string>
     <string name="go_to_3">Travel Assist</string>

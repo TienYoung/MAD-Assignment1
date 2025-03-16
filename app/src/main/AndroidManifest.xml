@@ -27,6 +27,10 @@
             android:label="@string/activity2"/>
         <activity android:name=".ThirdActivity"
             android:label="@string/activity3"/>
+        <activity android:name=".TripListActivity"
+            android:label="@string/trip_list_activity"/>
+        <activity android:name=".TripDetailActivity"
+            android:label="@string/trip_details_activity"/>
 
     </application>
 
