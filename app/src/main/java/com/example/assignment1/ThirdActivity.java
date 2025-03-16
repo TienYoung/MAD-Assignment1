@@ -29,7 +29,7 @@ public class ThirdActivity extends ComponentActivity {
 
 
         String msgFromMain = getIntent().getStringExtra("data_from_main_to_3");
-        Toast.makeText(this, msgFromMain, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, msgFromMain, Toast.LENGTH_LONG).show();
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override

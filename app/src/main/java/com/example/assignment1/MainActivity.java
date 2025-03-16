@@ -50,16 +50,16 @@ public class MainActivity extends ComponentActivity {
                             String dataReceived = null;
                             if (receivedData != null) {
                                 dataReceived = receivedData.getStringExtra("data_from_2_to_main");
-                                Log.d(TAG, "Data received: " + dataReceived);
-                                Toast.makeText(MainActivity.this, dataReceived, Toast.LENGTH_LONG).show();
+//                                Log.d(TAG, "Data received: " + dataReceived);
+//                                Toast.makeText(MainActivity.this, dataReceived, Toast.LENGTH_LONG).show();
                             }
                         } else if(o.getResultCode() == ResultCodes.RESULT_FROM_ACTIVITY_3) {
                             Intent receivedData = o.getData();
                             String dataReceived = null;
                             if (receivedData != null) {
                                 dataReceived = receivedData.getStringExtra("data_from_3_to_main");
-                                Log.d(TAG, "Data received: " + dataReceived);
-                                Toast.makeText(MainActivity.this, dataReceived, Toast.LENGTH_LONG).show();
+//                                Log.d(TAG, "Data received: " + dataReceived);
+//                                Toast.makeText(MainActivity.this, dataReceived, Toast.LENGTH_LONG).show();
                             }
                         }
                     }

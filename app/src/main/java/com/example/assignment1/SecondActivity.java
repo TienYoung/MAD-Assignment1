@@ -32,7 +32,7 @@ public class SecondActivity extends ComponentActivity {
 
         goBack = findViewById(R.id.goBack2);
         String msgFromMain = getIntent().getStringExtra("data_from_main_to_2");
-        Toast.makeText(this, msgFromMain, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, msgFromMain, Toast.LENGTH_LONG).show();
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
