@@ -35,4 +35,8 @@
     <string name="miami">Miami</string>
     <string name="paris">Paris</string>
     <string name="qatar">Qatar</string>
+    <string name="barcelona_phone">+34 932 957 200</string>
+    <string name="miami_phone">+1 954287 4792</string>
+    <string name="paris_phone">+33 014952 4281</string>
+    <string name="qatar_phone">+974 4406 9921</string>
 </resources>
