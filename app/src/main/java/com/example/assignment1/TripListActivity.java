@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.activity.ComponentActivity;
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class TripListActivity extends ComponentActivity {
     private ListView tripListView;
+    private Button backButton;
     private AppDatabase db;
 
     @Override
@@ -21,7 +23,16 @@ public class TripListActivity extends ComponentActivity {
         setContentView(R.layout.activity_trip_list);
 
         tripListView = findViewById(R.id.tripListView);
+        backButton = findViewById(R.id.backButton);
         db = AppDatabase.getDatabase(this);
+
+        // Set back button click listener
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish(); // Close current activity and return to previous screen
+            }
+        });
 
         loadTrips();
     }

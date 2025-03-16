@@ -2,39 +2,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <ImageView
-        android:id="@+id/detailDestinationImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:scaleType="centerCrop"/>
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/detailDestinationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Destination: "
-        android:textSize="18dp"
-        android:textStyle="bold" />
+        android:id="@+id/detailTitleTextView"
+        style="@style/HeaderBannerStyle"
+        android:layout_width="match_parent"
+        android:text="Trip Details" />
 
-    <TextView
-        android:id="@+id/detailDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date: " />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/detailPeopleCountTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="People Count: " />
+        <ImageView
+            android:id="@+id/detailDestinationImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/detailBudgetTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Budget: " />
+        <TextView
+            android:id="@+id/detailDestinationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destination: "
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/detailDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date: " />
+
+        <TextView
+            android:id="@+id/detailPeopleCountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="People Count: " />
+
+        <TextView
+            android:id="@+id/detailBudgetTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Budget: " />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/backButton"
+            style="@style/BackButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back" />
+    </LinearLayout>
 </LinearLayout>

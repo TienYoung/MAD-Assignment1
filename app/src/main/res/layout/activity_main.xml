@@ -97,17 +97,13 @@
     <TextView
         android:id="@+id/banner_title"
         android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:padding="16dp"
+        android:layout_height="wrap_content"
         android:text="@string/banner_title"
-        android:textColor="@android:color/white"
-        android:textSize="36sp"
-        android:textStyle="bold"
+        style="@style/HeaderBannerStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <!--    layout_constraintBottom_toBottomOf=parent-->
 <!--    layout_constraintEnd_toEndOf=parent-->

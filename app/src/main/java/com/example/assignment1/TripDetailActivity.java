@@ -1,6 +1,8 @@
 package com.example.assignment1;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +14,7 @@ import com.bumptech.glide.Glide;
 public class TripDetailActivity extends ComponentActivity {
     private TextView destinationTextView, dateTextView, peopleCountTextView, budgetTextView;
     private ImageView destinationImageView;
+    private Button backButton;
     private AppDatabase db;
 
     @Override
@@ -21,12 +24,23 @@ public class TripDetailActivity extends ComponentActivity {
 
         db = AppDatabase.getDatabase(this);
 
+        // Initialize view components
         destinationTextView = findViewById(R.id.detailDestinationTextView);
         destinationImageView = findViewById(R.id.detailDestinationImageView);
         dateTextView = findViewById(R.id.detailDateTextView);
         peopleCountTextView = findViewById(R.id.detailPeopleCountTextView);
         budgetTextView = findViewById(R.id.detailBudgetTextView);
+        backButton = findViewById(R.id.backButton);
 
+        // Set back button click listener
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish(); // Close current activity and return to previous screen
+            }
+        });
+
+        // Load trip details
         int tripId = getIntent().getIntExtra("TRIP_ID", -1);
         if (tripId != -1) {
             loadTripDetails(tripId);
