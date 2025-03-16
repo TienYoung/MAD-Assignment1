@@ -25,6 +25,7 @@ public class SecondActivity extends ComponentActivity {
     private EditText destinationEditText, budgetEditText;
     private DatePicker datePicker;
     private AppDatabase db;
+    private String imageUrl;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class SecondActivity extends ComponentActivity {
         setContentView(R.layout.activity_2);
 
         db = AppDatabase.getDatabase(this);
+        String destination = getIntent().getStringExtra("Destination");
+        imageUrl = getIntent().getStringExtra("ImageUrl");
 
         goBack = findViewById(R.id.goBack2);
         String msgFromMain = getIntent().getStringExtra("data_from_main_to_2");
@@ -49,6 +52,7 @@ public class SecondActivity extends ComponentActivity {
 
         saveButton = findViewById(R.id.saveButton);
         destinationEditText = findViewById(R.id.destinationEditText);
+        destinationEditText.setText(destination);
         budgetEditText = findViewById(R.id.budgetEditText);
         datePicker = findViewById(R.id.datePicker);
 
@@ -133,8 +137,7 @@ public class SecondActivity extends ComponentActivity {
         double budget = Double.parseDouble(budgetEditText.getText().toString().trim());
 
         // Create trip info
-        TripInfo tripInfo = new TripInfo(destination, formattedDate, peopleCount, budget);
-
+        TripInfo tripInfo = new TripInfo(destination, imageUrl, formattedDate, peopleCount, budget);
         db.tripInfoDao().insert(tripInfo);
 //        Toast.makeText(this, "Saving trip information...", Toast.LENGTH_SHORT).show();
     }

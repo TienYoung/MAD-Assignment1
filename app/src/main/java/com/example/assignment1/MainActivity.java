@@ -2,6 +2,7 @@ package com.example.assignment1;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,14 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class MainActivity extends ComponentActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -25,10 +34,16 @@ public class MainActivity extends ComponentActivity {
     private ImageView barcelonaImage, miamiImage, parisImage, qatarImage;
     private TextView barcelonaPhoneText, miamiPhoneText, parisPhoneText, qatarPhoneText;
 
+    private String selectedResortName = "";
+
+    private AppDatabase db;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = AppDatabase.getDatabase(this);
 
         goTo3Button = findViewById(R.id.goTo3Button);
         goTo2Button = findViewById(R.id.goTo2Button);
@@ -97,30 +112,108 @@ public class MainActivity extends ComponentActivity {
         barcelonaImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDestinationWebsite("https://www.getyourguide.com/barcelona-l45/");
+//                openDestinationWebsite("https://www.getyourguide.com/barcelona-l45/");
+                selectedResortName = "Barcelona";
+                new DownloadWikiTask().execute(selectedResortName);
             }
         });
 
         miamiImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDestinationWebsite("https://www.miamiandbeaches.com/");
+//                openDestinationWebsite("https://www.miamiandbeaches.com/");
+                selectedResortName = "Miami";
+                new DownloadWikiTask().execute(selectedResortName);
             }
         });
 
         parisImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDestinationWebsite("https://en.parisinfo.com/");
+//                openDestinationWebsite("https://en.parisinfo.com/");
+                selectedResortName = "Paris";
+                new DownloadWikiTask().execute(selectedResortName);
             }
         });
 
         qatarImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDestinationWebsite("https://www.visitqatar.qa/");
+//                openDestinationWebsite("https://www.visitqatar.qa/");
+                selectedResortName = "Qatar";
+                new DownloadWikiTask().execute(selectedResortName);
             }
         });
+    }
+
+    private class DownloadWikiTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... resorts) {
+            String selectedResort = resorts[0];
+            try {
+                String apiUrl = "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&titles=" + selectedResort + "&redirects=1&exintro=1&explaintext=1&pithumbsize=500";
+                URL url = new URL(apiUrl);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.connect();
+
+                InputStream inputStream = connection.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder result = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+                return result.toString();
+            }
+            catch (Exception e) {
+                Log.e(TAG, "Error downloading data", e);
+                return null;
+            }
+        }
+        @Override
+        protected void onPostExecute(String result) {
+            if (result != null) {
+                new ProcessWikiTask().execute(result);
+            } else {
+                Toast.makeText(MainActivity.this, "Download failed", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private class ProcessWikiTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... jsonStrings) {
+            String jsonString = jsonStrings[0];
+            String imageUrl = null;
+            try {
+                JSONObject jsonObject = new JSONObject(jsonString);
+                JSONObject query = jsonObject.getJSONObject("query");
+                JSONObject pages = query.getJSONObject("pages");
+                JSONObject firstPage = pages.getJSONObject(pages.keys().next());
+
+                String description = firstPage.getString("extract");
+                if (firstPage.has("thumbnail")) {
+                    JSONObject thumbnail = firstPage.getJSONObject("thumbnail");
+                    imageUrl = thumbnail.getString("source");
+                }
+
+            } catch (Exception e) {
+                Log.e(TAG, "Error processing data", e);
+            }
+            return imageUrl;
+        }
+        @Override
+        protected void onPostExecute(String imageUrl) {
+            if (imageUrl != null) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("Destination", selectedResortName);
+                intent.putExtra("ImageUrl", imageUrl);
+                startActivity(intent);
+            } else {
+                Toast.makeText(MainActivity.this, "Data processing failed", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void setupPhoneNumberListeners() {

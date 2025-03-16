@@ -6,6 +6,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ColumnInfo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Entity(tableName = "trip_info_table")
 public class TripInfo {
     @PrimaryKey(autoGenerate = true)
@@ -13,6 +16,9 @@ public class TripInfo {
 
     @ColumnInfo(name = "destination")
     private String destination;
+
+    @ColumnInfo(name = "image_url")
+    private String imageUrl;
 
     @ColumnInfo(name = "date")
     private String date;
@@ -23,8 +29,9 @@ public class TripInfo {
     @ColumnInfo(name = "budget")
     private double budget;
 
-    public TripInfo(String destination, String date, int peopleCount, double budget) {
+    public TripInfo(String destination, String imageUrl, String date, int peopleCount, double budget) {
         this.destination = destination;
+        this.imageUrl = imageUrl;
         this.date = date;
         this.peopleCount = peopleCount;
         this.budget = budget;
@@ -40,6 +47,14 @@ public class TripInfo {
 
     public void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getDate() {

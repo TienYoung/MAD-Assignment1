@@ -5,6 +5,12 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <ImageView
+        android:id="@+id/detailDestinationImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"/>
+
     <TextView
         android:id="@+id/detailDestinationTextView"
         android:layout_width="wrap_content"
