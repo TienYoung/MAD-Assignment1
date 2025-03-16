@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.ComponentActivity;
@@ -19,6 +20,7 @@ public class MainActivity extends ComponentActivity {
 
     Button goTo2Button = null;
     Button goTo3Button = null;
+    private ImageView barcelonaImage, miamiImage, parisImage, qatarImage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,6 +29,10 @@ public class MainActivity extends ComponentActivity {
 
         goTo3Button = findViewById(R.id.goTo3Button);
         goTo2Button = findViewById(R.id.goTo2Button);
+        barcelonaImage = findViewById(R.id.imageView);
+        miamiImage = findViewById(R.id.imageView2);
+        parisImage = findViewById(R.id.imageView3);
+        qatarImage = findViewById(R.id.imageView4);
 
         ActivityResultLauncher<Intent> getContent = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -75,5 +81,43 @@ public class MainActivity extends ComponentActivity {
             }
         });
 
+        // Set click listeners for destination images
+        setupDestinationImageListeners();
+    }
+
+    private void setupDestinationImageListeners() {
+        barcelonaImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDestinationWebsite("https://www.getyourguide.com/barcelona-l45/");
+            }
+        });
+
+        miamiImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDestinationWebsite("https://www.miamiandbeaches.com/");
+            }
+        });
+
+        parisImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDestinationWebsite("https://en.parisinfo.com/");
+            }
+        });
+
+        qatarImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDestinationWebsite("https://www.visitqatar.qa/");
+            }
+        });
+    }
+
+    private void openDestinationWebsite(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(android.net.Uri.parse(url));
+        startActivity(intent);
     }
 }
