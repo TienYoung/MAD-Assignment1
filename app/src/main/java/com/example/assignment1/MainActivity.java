@@ -32,7 +32,8 @@ public class MainActivity extends ComponentActivity {
 //    Button goTo2Button = null;
     Button goTo3Button = null;
     private ImageView barcelonaImage, miamiImage, parisImage, qatarImage;
-    private TextView barcelonaPhoneText, miamiPhoneText, parisPhoneText, qatarPhoneText;
+    private TextView barcelonaText, miamiText, parisText, qatarText;
+//    private TextView barcelonaPhoneText, miamiPhoneText, parisPhoneText, qatarPhoneText;
 
     private String selectedResortName = "";
 
@@ -47,10 +48,14 @@ public class MainActivity extends ComponentActivity {
         miamiImage = findViewById(R.id.imageView2);
         parisImage = findViewById(R.id.imageView3);
         qatarImage = findViewById(R.id.imageView4);
-        barcelonaPhoneText = findViewById(R.id.barcelonaPhoneText);
-        miamiPhoneText = findViewById(R.id.miamiPhoneText);
-        parisPhoneText = findViewById(R.id.parisPhoneText);
-        qatarPhoneText = findViewById(R.id.qatarPhoneText);
+        barcelonaText = findViewById(R.id.textViewBarcelona);
+        miamiText = findViewById(R.id.textViewMiami);
+        parisText = findViewById(R.id.textViewParis);
+        qatarText = findViewById(R.id.textViewQatar);
+//        barcelonaPhoneText = findViewById(R.id.barcelonaPhoneText);
+//        miamiPhoneText = findViewById(R.id.miamiPhoneText);
+//        parisPhoneText = findViewById(R.id.parisPhoneText);
+//        qatarPhoneText = findViewById(R.id.qatarPhoneText);
 
         ActivityResultLauncher<Intent> getContent = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -108,7 +113,6 @@ public class MainActivity extends ComponentActivity {
         barcelonaImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                openDestinationWebsite("https://www.getyourguide.com/barcelona-l45/");
                 selectedResortName = "Barcelona";
                 new DownloadWikiTask().execute(selectedResortName);
             }
@@ -117,7 +121,6 @@ public class MainActivity extends ComponentActivity {
         miamiImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                openDestinationWebsite("https://www.miamiandbeaches.com/");
                 selectedResortName = "Miami";
                 new DownloadWikiTask().execute(selectedResortName);
             }
@@ -126,7 +129,6 @@ public class MainActivity extends ComponentActivity {
         parisImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                openDestinationWebsite("https://en.parisinfo.com/");
                 selectedResortName = "Paris";
                 new DownloadWikiTask().execute(selectedResortName);
             }
@@ -135,7 +137,6 @@ public class MainActivity extends ComponentActivity {
         qatarImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                openDestinationWebsite("https://www.visitqatar.qa/");
                 selectedResortName = "Qatar";
                 new DownloadWikiTask().execute(selectedResortName);
             }
@@ -213,34 +214,38 @@ public class MainActivity extends ComponentActivity {
     }
 
     private void setupPhoneNumberListeners() {
-        barcelonaPhoneText.setOnClickListener(new View.OnClickListener() {
+        barcelonaText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makePhoneCall("+34932957200");
+                openDestinationWebsite("https://www.getyourguide.com/barcelona-l45/");
+//                makePhoneCall("+34932957200");
             }
         });
 
-        miamiPhoneText.setOnClickListener(new View.OnClickListener() {
+        miamiText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone = miamiPhoneText.getText().toString();
-                makePhoneCall("+19542874792");
+                openDestinationWebsite("https://www.miamiandbeaches.com/");
+//                String phone = miamiPhoneText.getText().toString();
+//                makePhoneCall("+19542874792");
             }
         });
 
-        parisPhoneText.setOnClickListener(new View.OnClickListener() {
+        parisText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone = parisPhoneText.getText().toString();
-                makePhoneCall("+33014952281");
+                openDestinationWebsite("https://en.parisinfo.com/");
+//                String phone = parisPhoneText.getText().toString();
+//                makePhoneCall("+33014952281");
             }
         });
 
-        qatarPhoneText.setOnClickListener(new View.OnClickListener() {
+        qatarText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone = qatarPhoneText.getText().toString();
-                makePhoneCall("+97444069921");
+                openDestinationWebsite("https://www.visitqatar.qa/");
+//                String phone = qatarPhoneText.getText().toString();
+//                makePhoneCall("+97444069921");
             }
         });
     }
