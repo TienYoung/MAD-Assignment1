@@ -49,7 +49,7 @@
         android:id="@+id/imageView4"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="44dp"
         android:src="@drawable/qatar"
         android:contentDescription="@string/qatar"
@@ -61,7 +61,7 @@
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/paris"
         android:contentDescription="@string/paris"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,6 @@
         android:layout_marginBottom="36dp"
         android:padding="10dp"
         android:text="@string/go_to_2"
-        android:textColor="#212121"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/goTo3Button"
         app:layout_constraintHorizontal_bias="0.373"
@@ -140,7 +139,6 @@
         android:layout_height="50dp"
         android:layout_marginBottom="36dp"
         android:text="@string/go_to_3"
-        android:textColor="#212121"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.881"
@@ -167,5 +165,49 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/barcelonaPhoneText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/barcelona_phone"
+        style="@style/PhoneNumberStyle"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/miamiPhoneText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/miami_phone"
+        style="@style/PhoneNumberStyle"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/parisPhoneText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/paris_phone"
+        style="@style/PhoneNumberStyle"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/qatarPhoneText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/qatar_phone"
+        style="@style/PhoneNumberStyle"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
