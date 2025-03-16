@@ -22,7 +22,8 @@
     </style>
 <!--    android:background-->
     <style name="MyButton" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:background">#2196F3</item>
+        <item name="android:background">#0D47A1</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="AppEditText" parent="Widget.AppCompat.EditText">
