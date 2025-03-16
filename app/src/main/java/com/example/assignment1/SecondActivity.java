@@ -101,6 +101,10 @@ public class SecondActivity extends ComponentActivity {
             public void onClick(View v) {
                 if (validateInputs()) {
                     saveTripInfo();
+                    Intent sendBack = new Intent();
+                    sendBack.putExtra("data_from_2_to_main", "hello from activity 2");
+                    setResult(ResultCodes.RESULT_FROM_ACTIVITY_2, sendBack);
+                    finish();
                 }
             }
         });

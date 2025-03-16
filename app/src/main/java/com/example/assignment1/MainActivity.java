@@ -29,24 +29,20 @@ import java.net.URL;
 public class MainActivity extends ComponentActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    Button goTo2Button = null;
+//    Button goTo2Button = null;
     Button goTo3Button = null;
     private ImageView barcelonaImage, miamiImage, parisImage, qatarImage;
     private TextView barcelonaPhoneText, miamiPhoneText, parisPhoneText, qatarPhoneText;
 
     private String selectedResortName = "";
 
-    private AppDatabase db;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = AppDatabase.getDatabase(this);
-
         goTo3Button = findViewById(R.id.goTo3Button);
-        goTo2Button = findViewById(R.id.goTo2Button);
+//        goTo2Button = findViewById(R.id.goTo2Button);
         barcelonaImage = findViewById(R.id.imageView);
         miamiImage = findViewById(R.id.imageView2);
         parisImage = findViewById(R.id.imageView3);
@@ -82,15 +78,15 @@ public class MainActivity extends ComponentActivity {
 
 
 
-        goTo2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra("data_from_main_to_2", "Hello from Main");
-//                startActivity(intent);
-                getContent.launch(intent);
-            }
-        });
+//        goTo2Button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+//                intent.putExtra("data_from_main_to_2", "Hello from Main");
+////                startActivity(intent);
+//                getContent.launch(intent);
+//            }
+//        });
 
 
         goTo3Button.setOnClickListener(new View.OnClickListener() {

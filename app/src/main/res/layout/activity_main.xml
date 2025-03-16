@@ -118,30 +118,30 @@
     <!--    layout_constraintStart_toStartOf=parent-->
 <!--    layout_constraintTop_toBottomOf=@+id/myLongButton-->
 
-    <Button
-        android:id="@+id/goTo2Button"
-        style="@style/MyButton"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="36dp"
-        android:padding="10dp"
-        android:text="@string/go_to_2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/goTo3Button"
-        app:layout_constraintHorizontal_bias="0.373"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/goTo2Button"-->
+<!--        style="@style/MyButton"-->
+<!--        android:layout_width="140dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginBottom="36dp"-->
+<!--        android:padding="10dp"-->
+<!--        android:text="@string/go_to_2"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/goTo3Button"-->
+<!--        app:layout_constraintHorizontal_bias="0.373"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <Button
         android:id="@+id/goTo3Button"
         style="@style/MyButton"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="36dp"
-        android:text="@string/go_to_3"
+        android:layout_marginBottom="32dp"
+        android:text="@string/trip_list_activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
