@@ -28,10 +28,15 @@
 
     <Button
         android:id="@+id/goBack2"
-        android:layout_width="wrap_content"
+        style="@style/BackButtonStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/go_back"
+        app:layout_constraintEnd_toStartOf="@+id/viewTripsButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/saveButton" />
 
@@ -167,6 +172,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/budgetEditText" />
 
+    <Button
+        android:id="@+id/viewTripsButton"
+        style="@style/ViewTripsButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/view_trips"
+        app:layout_constraintBaseline_toBaselineOf="@+id/goBack2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/goBack2" />
 
 <!--    layout_constraintStart_toStartOf=parent-->
 <!--    layout_constraintTop_toBottomOf=@+id/textView2-->

@@ -149,6 +149,7 @@
     <!-- Back Button (Bottom position) -->
     <Button
         android:id="@+id/goBack3"
+        style="@style/BackButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:minWidth="88dp"

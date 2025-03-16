@@ -39,4 +39,5 @@
     <string name="miami_phone">+1 954287 4792</string>
     <string name="paris_phone">+33 014952 4281</string>
     <string name="qatar_phone">+974 4406 9921</string>
+    <string name="view_trips">View Trips</string>
 </resources>
