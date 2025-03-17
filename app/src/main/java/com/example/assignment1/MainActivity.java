@@ -36,14 +36,19 @@ public class MainActivity extends ComponentActivity {
 
     private String selectedResortName = "";
 
+    /**
+     * Initializes the activity, sets content view and initializes UI components.
+     * Sets up click listeners for buttons and destination images.
+     * Configures ActivityResultLauncher to handle results from other activities.
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 初始化按鈕
+        // Initialize buttons
         goTo3Button = findViewById(R.id.goTo3Button);
-        // 我們需要在布局中添加 tripListButton
+        // We need to add tripListButton in the layout
         tripListButton = findViewById(R.id.tripListButton);
 
         barcelonaImage = findViewById(R.id.imageView);
@@ -75,7 +80,7 @@ public class MainActivity extends ComponentActivity {
                     }
                 });
 
-        // 修正：goTo3Button 應該導航到 ThirdActivity
+        // goTo3Button navigate to ThirdActivity
         goTo3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +90,7 @@ public class MainActivity extends ComponentActivity {
             }
         });
 
-        // 新增：tripListButton 應該導航到 TripListActivity
+        // tripListButton navigate to TripListActivity
         tripListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,13 +99,16 @@ public class MainActivity extends ComponentActivity {
             }
         });
 
-        // 設置目的地圖片的點擊監聽器
+        // Set up destination image click listeners
         setupDestinationImageListeners();
         setupPhoneNumberListeners();
     }
 
-    // 其餘代碼保持不變...
-
+    /**
+     * Configures click listeners for destination images.
+     * When a destination image is clicked, it sets the selected resort name
+     * and initiates Wikipedia data download for that destination.
+     */
     private void setupDestinationImageListeners() {
         barcelonaImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +143,10 @@ public class MainActivity extends ComponentActivity {
         });
     }
 
+    /**
+     * AsyncTask to download data from Wikipedia API for the selected resort.
+     * Makes an HTTP GET request to the Wikipedia API and returns the JSON response.
+     */
     private class DownloadWikiTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... resorts) {
@@ -160,6 +172,12 @@ public class MainActivity extends ComponentActivity {
                 return null;
             }
         }
+
+        /**
+         * Processes the result after the background task completes.
+         * If download was successful, initiates processing of the downloaded JSON.
+         * Otherwise, displays an error message.
+         */
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
@@ -170,6 +188,10 @@ public class MainActivity extends ComponentActivity {
         }
     }
 
+    /**
+     * AsyncTask to process the downloaded Wikipedia JSON data.
+     * Extracts the image URL from the JSON response.
+     */
     private class ProcessWikiTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... jsonStrings) {
@@ -192,6 +214,12 @@ public class MainActivity extends ComponentActivity {
             }
             return imageUrl;
         }
+
+        /**
+         * Handles the result after JSON processing is complete.
+         * If an image URL was found, launches SecondActivity with destination and image information.
+         * Otherwise, displays an error message.
+         */
         @Override
         protected void onPostExecute(String imageUrl) {
             if (imageUrl != null) {
@@ -205,6 +233,10 @@ public class MainActivity extends ComponentActivity {
         }
     }
 
+    /**
+     * Sets up click listeners for destination text views.
+     * When a destination text is clicked, opens the corresponding website.
+     */
     private void setupPhoneNumberListeners() {
         barcelonaText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,12 +267,23 @@ public class MainActivity extends ComponentActivity {
         });
     }
 
+    /**
+     * Opens the provided URL in the device's web browser.
+     *
+     * @param url The website URL to open
+     */
     private void openDestinationWebsite(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(android.net.Uri.parse(url));
         startActivity(intent);
     }
 
+    /**
+     * Initiates a phone call to the provided phone number using the dialer app.
+     * Logs the attempt and handles any exceptions that might occur.
+     *
+     * @param phoneNumber The phone number to call
+     */
     private void makePhoneCall(String phoneNumber) {
         try {
             Log.d(TAG, "Attempting to call: " + phoneNumber);
