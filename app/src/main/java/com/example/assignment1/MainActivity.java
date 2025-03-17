@@ -48,7 +48,6 @@ public class MainActivity extends ComponentActivity {
 
         // Initialize buttons
         goTo3Button = findViewById(R.id.goTo3Button);
-        // We need to add tripListButton in the layout
         tripListButton = findViewById(R.id.tripListButton);
 
         barcelonaImage = findViewById(R.id.imageView);
