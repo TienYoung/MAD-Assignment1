@@ -29,11 +29,10 @@ import java.net.URL;
 public class MainActivity extends ComponentActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
-//    Button goTo2Button = null;
     Button goTo3Button = null;
+    Button tripListButton = null;
     private ImageView barcelonaImage, miamiImage, parisImage, qatarImage;
     private TextView barcelonaText, miamiText, parisText, qatarText;
-//    private TextView barcelonaPhoneText, miamiPhoneText, parisPhoneText, qatarPhoneText;
 
     private String selectedResortName = "";
 
@@ -42,8 +41,11 @@ public class MainActivity extends ComponentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 初始化按鈕
         goTo3Button = findViewById(R.id.goTo3Button);
-//        goTo2Button = findViewById(R.id.goTo2Button);
+        // 我們需要在布局中添加 tripListButton
+        tripListButton = findViewById(R.id.tripListButton);
+
         barcelonaImage = findViewById(R.id.imageView);
         miamiImage = findViewById(R.id.imageView2);
         parisImage = findViewById(R.id.imageView3);
@@ -52,10 +54,6 @@ public class MainActivity extends ComponentActivity {
         miamiText = findViewById(R.id.textViewMiami);
         parisText = findViewById(R.id.textViewParis);
         qatarText = findViewById(R.id.textViewQatar);
-//        barcelonaPhoneText = findViewById(R.id.barcelonaPhoneText);
-//        miamiPhoneText = findViewById(R.id.miamiPhoneText);
-//        parisPhoneText = findViewById(R.id.parisPhoneText);
-//        qatarPhoneText = findViewById(R.id.qatarPhoneText);
 
         ActivityResultLauncher<Intent> getContent = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
@@ -66,48 +64,42 @@ public class MainActivity extends ComponentActivity {
                             String dataReceived = null;
                             if (receivedData != null) {
                                 dataReceived = receivedData.getStringExtra("data_from_2_to_main");
-//                                Log.d(TAG, "Data received: " + dataReceived);
-//                                Toast.makeText(MainActivity.this, dataReceived, Toast.LENGTH_LONG).show();
                             }
                         } else if(o.getResultCode() == ResultCodes.RESULT_FROM_ACTIVITY_3) {
                             Intent receivedData = o.getData();
                             String dataReceived = null;
                             if (receivedData != null) {
                                 dataReceived = receivedData.getStringExtra("data_from_3_to_main");
-//                                Log.d(TAG, "Data received: " + dataReceived);
-//                                Toast.makeText(MainActivity.this, dataReceived, Toast.LENGTH_LONG).show();
                             }
                         }
                     }
                 });
 
-
-
-//        goTo2Button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-//                intent.putExtra("data_from_main_to_2", "Hello from Main");
-////                startActivity(intent);
-//                getContent.launch(intent);
-//            }
-//        });
-
-
+        // 修正：goTo3Button 應該導航到 ThirdActivity
         goTo3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, TripListActivity.class);
-//                intent.putExtra("data_from_main_to_3", "Hello from Main");
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
+                intent.putExtra("data_from_main_to_3", "Hello from Main");
                 getContent.launch(intent);
             }
         });
 
-        // Set click listeners for destination images
+        // 新增：tripListButton 應該導航到 TripListActivity
+        tripListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TripListActivity.class);
+                getContent.launch(intent);
+            }
+        });
+
+        // 設置目的地圖片的點擊監聽器
         setupDestinationImageListeners();
         setupPhoneNumberListeners();
     }
+
+    // 其餘代碼保持不變...
 
     private void setupDestinationImageListeners() {
         barcelonaImage.setOnClickListener(new View.OnClickListener() {
@@ -218,7 +210,6 @@ public class MainActivity extends ComponentActivity {
             @Override
             public void onClick(View v) {
                 openDestinationWebsite("https://www.getyourguide.com/barcelona-l45/");
-//                makePhoneCall("+34932957200");
             }
         });
 
@@ -226,8 +217,6 @@ public class MainActivity extends ComponentActivity {
             @Override
             public void onClick(View v) {
                 openDestinationWebsite("https://www.miamiandbeaches.com/");
-//                String phone = miamiPhoneText.getText().toString();
-//                makePhoneCall("+19542874792");
             }
         });
 
@@ -235,8 +224,6 @@ public class MainActivity extends ComponentActivity {
             @Override
             public void onClick(View v) {
                 openDestinationWebsite("https://en.parisinfo.com/");
-//                String phone = parisPhoneText.getText().toString();
-//                makePhoneCall("+33014952281");
             }
         });
 
@@ -244,8 +231,6 @@ public class MainActivity extends ComponentActivity {
             @Override
             public void onClick(View v) {
                 openDestinationWebsite("https://www.visitqatar.qa/");
-//                String phone = qatarPhoneText.getText().toString();
-//                makePhoneCall("+97444069921");
             }
         });
     }
@@ -269,5 +254,4 @@ public class MainActivity extends ComponentActivity {
             Toast.makeText(this, "Unable to call: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-
 }

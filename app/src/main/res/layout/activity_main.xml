@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.example.assignment1.MainActivity">
 
-<!--    layout_constraintBottom_toBottomOf=parent-->
-<!--    layout_constraintLeft_toLeftOf=parent-->
-<!--    layout_constraintRight_toRightOf=parent-->
-<!--    layout_constraintTop_toTopOf=parent-->
+    <!--    layout_constraintBottom_toBottomOf=parent-->
+    <!--    layout_constraintLeft_toLeftOf=parent-->
+    <!--    layout_constraintRight_toRightOf=parent-->
+    <!--    layout_constraintTop_toTopOf=parent-->
     <!-- Banner Section -->
 
     <TextView
@@ -20,6 +20,9 @@
         android:layout_marginTop="24dp"
         android:text="@string/barcelona"
         android:textStyle="bold"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:gravity="center"
         style="@style/OuterLinkStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -32,6 +35,9 @@
         android:layout_marginTop="20dp"
         android:text="@string/paris"
         android:textStyle="bold"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:gravity="center"
         style="@style/OuterLinkStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -44,6 +50,9 @@
         android:layout_marginEnd="92dp"
         android:text="@string/qatar"
         android:textStyle="bold"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:gravity="center"
         style="@style/OuterLinkStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -56,6 +65,9 @@
         android:layout_marginEnd="88dp"
         android:text="@string/miami"
         android:textStyle="bold"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:gravity="center"
         style="@style/OuterLinkStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -104,57 +116,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <!--    layout_constraintBottom_toBottomOf=parent-->
-<!--    layout_constraintEnd_toEndOf=parent-->
-<!--    layout_constraintStart_toStartOf=parent-->
-<!--    layout_constraintTop_toTopOf=parent-->
-<!--    layout_constraintVertical_bias=0.184-->
-
-
-    <!--    layout_constraintBottom_toBottomOf=parent-->
-<!--    layout_constraintEnd_toEndOf=parent-->
-<!--    layout_constraintHorizontal_bias=0.45-->
-<!--    layout_constraintStart_toStartOf=parent-->
-<!--    layout_constraintTop_toBottomOf=@+id/seekBar-->
-
-
-    <!--    layout_constraintBottom_toBottomOf=parent-->
-<!--    layout_constraintEnd_toEndOf=parent-->
-<!--    layout_constraintStart_toStartOf=parent-->
-<!--    layout_constraintTop_toBottomOf=@+id/textView-->
-<!--    layout_constraintVertical_bias=0.15-->
-<!--    textColor=-->
-
-
-    <!--    layout_constraintStart_toStartOf=parent-->
-<!--    layout_constraintTop_toBottomOf=@+id/myLongButton-->
-
-<!--    <Button-->
-<!--        android:id="@+id/goTo2Button"-->
-<!--        style="@style/MyButton"-->
-<!--        android:layout_width="140dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginBottom="36dp"-->
-<!--        android:padding="10dp"-->
-<!--        android:text="@string/go_to_2"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/goTo3Button"-->
-<!--        app:layout_constraintHorizontal_bias="0.373"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-
     <Button
         android:id="@+id/goTo3Button"
         style="@style/MyButton"
-        android:layout_width="140dp"
+        android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginBottom="32dp"
-        android:text="@string/trip_list_activity"
+        android:layout_marginEnd="16dp"
+        android:text="@string/travel_assistant"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tripListButton"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/tripListButton"
+        style="@style/ViewTripsButton"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/trip_list_activity"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/goTo3Button"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -166,51 +153,5 @@
         android:src="@drawable/barcelona"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner_title" />
-
-
-
-<!--    <TextView-->
-<!--        android:id="@+id/barcelonaPhoneText"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="@string/barcelona_phone"-->
-<!--        style="@style/PhoneNumberStyle"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView2"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/imageView"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/imageView" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/miamiPhoneText"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="@string/miami_phone"-->
-<!--        style="@style/PhoneNumberStyle"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView3"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/imageView2"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/imageView2" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/parisPhoneText"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="@string/paris_phone"-->
-<!--        style="@style/PhoneNumberStyle"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView4"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/imageView3"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/imageView3" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/qatarPhoneText"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="@string/qatar_phone"-->
-<!--        style="@style/PhoneNumberStyle"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView5"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/imageView4"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/imageView4" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
