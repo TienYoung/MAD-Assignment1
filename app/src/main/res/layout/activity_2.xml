@@ -139,24 +139,28 @@
     <Button
         android:id="@+id/saveButton"
         style="@style/MyButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/save_trip"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/goBack2"
+        app:layout_constraintHorizontal_chainStyle="packed" />
 
     <Button
         android:id="@+id/goBack2"
         style="@style/BackButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="16dp"
         android:text="@string/go_back"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/saveButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!--    <Button-->
