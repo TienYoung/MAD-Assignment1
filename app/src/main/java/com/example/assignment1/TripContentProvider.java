@@ -66,7 +66,14 @@ public class TripContentProvider extends ContentProvider {
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
-        return null;
+        switch (uriMatcher.match(uri)) {
+            case TRIPS:
+                return TRIPS_MIME_TYPE;
+            case TRIP_ID:
+                return TRIP_MIME_TYPE;
+            default:
+                throw new IllegalArgumentException("Unknown URI: " + uri);
+        }
     }
 
     @Nullable
