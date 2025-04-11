@@ -44,6 +44,7 @@ public class TripService extends Service {
     @Override
     public void onDestroy() {
         Log.i(TAG, "Trip Service Destroyed");
+        unregisterReceivers();
         super.onDestroy();
     }
 
