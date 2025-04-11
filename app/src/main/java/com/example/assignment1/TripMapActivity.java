@@ -1,6 +1,7 @@
 package com.example.assignment1;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,12 +21,16 @@ public class TripMapActivity extends AppCompatActivity implements OnMapReadyCall
 
         // Initialize UI elements
         mapView = findViewById(R.id.map_view);
+        Button backButton = findViewById(R.id.back_button);
 
         // Initialize map
         Bundle mapViewBundle = savedInstanceState != null ?
                 savedInstanceState.getBundle("MapViewBundleKey") : null;
         mapView.onCreate(mapViewBundle);
         mapView.getMapAsync(this);
+
+        // Set back button click listener
+        backButton.setOnClickListener(view -> finish());
     }
 
     @Override
