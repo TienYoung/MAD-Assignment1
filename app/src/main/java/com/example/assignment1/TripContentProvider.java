@@ -2,6 +2,7 @@ package com.example.assignment1;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 
@@ -14,6 +15,33 @@ import androidx.annotation.Nullable;
  */
 public class TripContentProvider extends ContentProvider {
     private static final String TAG = TripContentProvider.class.getSimpleName();
+
+    // Authority for this content provider
+    public static final String AUTHORITY = "com.example.assignment1.provider";
+
+    // URI paths
+    public static final String TRIPS_PATH = "trips";
+
+    // URI matcher codes
+    private static final int TRIPS = 1;
+    private static final int TRIP_ID = 2;
+
+    // Content URI for trips
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + TRIPS_PATH);
+
+    // MIME types
+    private static final String TRIPS_MIME_TYPE =
+            "vnd.android.cursor.dir/vnd." + AUTHORITY + "." + TRIPS_PATH;
+    private static final String TRIP_MIME_TYPE =
+            "vnd.android.cursor.item/vnd." + AUTHORITY + "." + TRIPS_PATH;
+
+    // URI matcher
+    private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
+    static {
+        uriMatcher.addURI(AUTHORITY, TRIPS_PATH, TRIPS);
+        uriMatcher.addURI(AUTHORITY, TRIPS_PATH + "/#", TRIP_ID);
+    }
 
     @Override
     public boolean onCreate() {
