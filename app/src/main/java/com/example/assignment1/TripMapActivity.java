@@ -36,5 +36,16 @@ public class TripMapActivity extends AppCompatActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap map) {
         this.googleMap = map;
+        if (this.googleMap != null) {
+            setupMap();
+        }
+    }
+
+    private void setupMap() {
+        this.googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        this.googleMap.getUiSettings().setCompassEnabled(true);
+        this.googleMap.getUiSettings().setZoomControlsEnabled(true);
+        this.googleMap.getUiSettings().setZoomGesturesEnabled(true);
+        this.googleMap.getUiSettings().setScrollGesturesEnabled(true);
     }
 }
