@@ -38,5 +38,8 @@
     <string name="paris">Paris</string>
     <string name="qatar">Qatar</string>
     <string name="view_trips">View Trips</string>
-
+    <string name="search_location_hint">Search location</string>
+    <string name="search_button">Search</string>
+    <string name="map_view_description">Map showing travel locations and routes</string>
+    <string name="directions_placeholder">Directions...</string>
 </resources>
