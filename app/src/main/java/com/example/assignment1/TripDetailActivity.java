@@ -70,4 +70,10 @@ public class TripDetailActivity extends ComponentActivity {
             budgetTextView.setText("Budget: " + trip.getBudget());
         }
     }
+
+    private void openMapView() {
+        Intent intent = new Intent(this, TripMapActivity.class);
+        intent.putExtra("TRIP_ID", tripId);
+        startActivity(intent);
+    }
 }
