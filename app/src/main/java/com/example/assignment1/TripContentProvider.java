@@ -8,6 +8,7 @@ import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.room.Room;
 
 /**
  * Content provider for trip information data.
@@ -43,9 +44,16 @@ public class TripContentProvider extends ContentProvider {
         uriMatcher.addURI(AUTHORITY, TRIPS_PATH + "/#", TRIP_ID);
     }
 
+    // Database reference
+    private AppDatabase database;
+
     @Override
     public boolean onCreate() {
-        return false;
+        database = Room.databaseBuilder(getContext(),
+                        AppDatabase.class, "app_database")
+                .allowMainThreadQueries()
+                .build();
+        return true;
     }
 
     @Nullable
