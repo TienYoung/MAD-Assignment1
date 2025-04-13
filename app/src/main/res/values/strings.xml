@@ -28,6 +28,7 @@
     <string name="tickets">Tickets</string>
     <string name="emergency_contacts">Emergency Contacts</string>
     <string name="emergency_contact_hint">Emergency Contact Number</string>
+    <string name="emergency_contact_select">Select emergency contact</string>
     <string name="new_item_hint">Enter new item</string>
     <string name="add_item">Add</string>
     <string name="visa">Visa</string>
