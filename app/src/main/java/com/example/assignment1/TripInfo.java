@@ -85,13 +85,6 @@ public class TripInfo {
     }
 
     /**
-     * No emergency contact constructor.
-     */
-    public TripInfo(String destination, String imageUrl, String date, int peopleCount, double budget) {
-        this(destination, imageUrl, date, peopleCount, budget, null, null, null);
-    }
-
-    /**
      * Gets the trip ID.
      *
      * @return The unique identifier for the trip
