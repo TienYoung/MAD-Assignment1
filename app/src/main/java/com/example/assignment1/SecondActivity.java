@@ -141,7 +141,7 @@ public class SecondActivity extends ComponentActivity {
         double budget = Double.parseDouble(budgetEditText.getText().toString().trim());
 
         // Create trip info
-        TripInfo tripInfo = new TripInfo(destination, imageUrl, formattedDate, peopleCount, budget);
+        TripInfo tripInfo = new TripInfo(destination, imageUrl, formattedDate, peopleCount, budget, null, null, null);
         db.tripInfoDao().insert(tripInfo);
 //        Toast.makeText(this, "Saving trip information...", Toast.LENGTH_SHORT).show();
     }

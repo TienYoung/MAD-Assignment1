@@ -1,5 +1,6 @@
 package com.example.assignment1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +15,9 @@ import com.bumptech.glide.Glide;
 public class TripDetailActivity extends ComponentActivity {
     private TextView destinationTextView, dateTextView, peopleCountTextView, budgetTextView;
     private ImageView destinationImageView;
-    private Button backButton;
+    private Button backButton, viewMapButton;
     private AppDatabase db;
+    private int tripId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class TripDetailActivity extends ComponentActivity {
         peopleCountTextView = findViewById(R.id.detailPeopleCountTextView);
         budgetTextView = findViewById(R.id.detailBudgetTextView);
         backButton = findViewById(R.id.backButton);
+        viewMapButton = findViewById(R.id.viewMapButton);
 
         // Set back button click listener
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -40,8 +43,16 @@ public class TripDetailActivity extends ComponentActivity {
             }
         });
 
+        // Set view map button click listener
+        viewMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMapView();
+            }
+        });
+
         // Load trip details
-        int tripId = getIntent().getIntExtra("TRIP_ID", -1);
+        tripId = getIntent().getIntExtra("TRIP_ID", -1);
         if (tripId != -1) {
             loadTripDetails(tripId);
         }
@@ -58,5 +69,11 @@ public class TripDetailActivity extends ComponentActivity {
             peopleCountTextView.setText("People Count: " + trip.getPeopleCount());
             budgetTextView.setText("Budget: " + trip.getBudget());
         }
+    }
+
+    private void openMapView() {
+        Intent intent = new Intent(this, TripMapActivity.class);
+        intent.putExtra("TRIP_ID", tripId);
+        startActivity(intent);
     }
 }

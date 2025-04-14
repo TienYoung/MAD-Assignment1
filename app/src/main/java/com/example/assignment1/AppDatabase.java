@@ -20,7 +20,8 @@ public abstract class AppDatabase extends RoomDatabase {
                             context.getApplicationContext(),
                             AppDatabase.class, "app_database")
                             .allowMainThreadQueries()
-                            .fallbackToDestructiveMigration().build();
+                            .fallbackToDestructiveMigration()
+                            .build();
                 }
             }
         }

@@ -52,6 +52,18 @@ public class TripInfo {
     private double budget;
 
     /**
+     * Emergency contact name phone associated with the trip.
+     */
+    @ColumnInfo(name = "emergency_contact_name")
+    private String emergencyContactName;
+
+    @ColumnInfo(name = "emergency_contact_phone")
+    private String emergencyContactPhone;
+
+    @ColumnInfo(name = "emergency_contact_id")
+    private String emergencyContactId;
+
+    /**
      * Constructor to create a new TripInfo instance.
      *
      * @param destination Name of the destination
@@ -60,12 +72,16 @@ public class TripInfo {
      * @param peopleCount Number of people on the trip
      * @param budget Trip budget amount
      */
-    public TripInfo(String destination, String imageUrl, String date, int peopleCount, double budget) {
+    public TripInfo(String destination, String imageUrl, String date, int peopleCount, double budget, String emergencyContactName, String emergencyContactPhone,
+                    String emergencyContactId) {
         this.destination = destination;
         this.imageUrl = imageUrl;
         this.date = date;
         this.peopleCount = peopleCount;
         this.budget = budget;
+        this.emergencyContactName = emergencyContactName;
+        this.emergencyContactPhone = emergencyContactPhone;
+        this.emergencyContactId = emergencyContactId;
     }
 
     /**
@@ -170,6 +186,30 @@ public class TripInfo {
      */
     public void setBudget(double budget) {
         this.budget = budget;
+    }
+
+    public String getEmergencyContactName() {
+        return emergencyContactName;
+    }
+
+    public void setEmergencyContactName(String emergencyContactName) {
+        this.emergencyContactName = emergencyContactName;
+    }
+
+    public String getEmergencyContactPhone() {
+        return emergencyContactPhone;
+    }
+
+    public void setEmergencyContactPhone(String emergencyContactPhone) {
+        this.emergencyContactPhone = emergencyContactPhone;
+    }
+
+    public String getEmergencyContactId() {
+        return emergencyContactId;
+    }
+
+    public void setEmergencyContactId(String emergencyContactId) {
+        this.emergencyContactId = emergencyContactId;
     }
 
 }
